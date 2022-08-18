@@ -6,3 +6,4 @@ RUN apt install -y git
 RUN apt install -y wget
 RUN apt install -y default-jdk
 RUN apt install -y maven
+CMD ['mvn']
