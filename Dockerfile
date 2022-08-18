@@ -6,4 +6,5 @@ RUN apt install -y git
 RUN apt install -y wget
 RUN apt install -y default-jdk
 RUN apt install -y maven
+RUN apt install -y docker.io
 CMD ['mvn']
