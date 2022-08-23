@@ -4,14 +4,21 @@ pipeline {
     stages {
         stage('git and build') {
             agent {
-             docker { image 'reolwe/jan:latest'
-        args '-u root -v /var/run/docker.sock:/var/run/docker.sock'} }
+             docker {
+              image 'reolwe/jan:latest'
+              args '-u root -v /var/run/docker.sock:/var/run/docker.sock'
+              }
+              }
+              stages {
+                stage ('build') {
+
             steps {
                git 'https://github.com/reolwe/origin555.git'
                sh 'ls -l &&  mvn package'
                sh 'docker login -u reolwe -p dckr_pat_ZydUH_tEynqAgDlLQSQhZGE9tPE'
                sh 'docker build --tag=reolwe/tomcatprod .&& docker push reolwe/tomcatprod'
             }
+        }
         }
 
 
