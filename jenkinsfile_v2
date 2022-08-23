@@ -3,8 +3,9 @@ pipeline {
 
     stages {
         stage('git and build') {
-            agent docker { image 'reolwe/jan:latest'
-        args '-u root -v /var/run/docker.sock:/var/run/docker.sock'}
+            agent {
+             docker { image 'reolwe/jan:latest'
+        args '-u root -v /var/run/docker.sock:/var/run/docker.sock'} }
             steps {
                git 'https://github.com/reolwe/origin555.git'
                sh 'ls -l &&  mvn package'}
@@ -29,4 +30,3 @@ pipeline {
         }
 
     }
-}
