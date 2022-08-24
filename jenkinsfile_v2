@@ -31,8 +31,8 @@ pipeline {
                 sshagent(credentials : ['pipe']) {
             sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74 uptime'
 
-            sh 'docker pull reolwe/tomcatprod'
-            sh 'docker run -d -p 8080:8080 reolwe/tomcatprod'
+            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74 docker pull reolwe/tomcatprod'
+            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74docker run -d -p 8080:8080 reolwe/tomcatprod'
         }
             }
         }
