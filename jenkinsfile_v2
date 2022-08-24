@@ -29,10 +29,10 @@ pipeline {
             agent any
             steps {
                 sshagent(credentials : ['pipe']) {
-            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74 uptime'
+            sh 'ssh -o StrictHostKeyChecking=no root@158.160.10.24 uptime'
 
-            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74 docker pull reolwe/tomcatprod'
-            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74docker run -d -p 8080:8080 reolwe/tomcatprod'
+            sh 'ssh -o StrictHostKeyChecking=no root@158.160.10.24 docker pull reolwe/tomcatprod'
+            sh 'ssh -o StrictHostKeyChecking=no root@158.160.10.24 docker run -d -p 8080:8080 reolwe/tomcatprod'
         }
             }
         }
