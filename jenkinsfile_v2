@@ -28,8 +28,8 @@ pipeline {
         stage('run docker on prod') {
             agent any
             steps {
-                sshagent(credentials : ['40183a58-537c-483f-ad86-eef9f2ac2fd3']) {
-            sh 'ssh -o StrictHostKeyChecking=no root@84.252.139.103 uptime'
+                sshagent(credentials : ['pipe']) {
+            sh 'ssh -o StrictHostKeyChecking=no root@51.250.104.74 uptime'
 
             sh 'docker pull reolwe/tomcatprod'
             sh 'docker run -d -p 8080:8080 reolwe/tomcatprod'
